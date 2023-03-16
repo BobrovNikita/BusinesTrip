@@ -1,4 +1,5 @@
 ﻿using DBCourse_Azuavchikova.Data.Entities;
+using DBCourse_Azuavchikova.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
     public interface IBusinesTripView
     {
         Guid Id { get; set; }
-        Employee Employee { get; set; }
+        EmployeeViewModel Employee { get; set; }
         string Destination { get; set; }
         string Goal { get; set; }
         string Basis { get; set; }
@@ -33,7 +34,7 @@ namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
         event EventHandler CancelEvent;
 
         void SetEmployeeBindingSource(BindingSource source);
-        void SetPositionBindingSource(BindingSource source);
+        void SetBusinesTripBindingSource(BindingSource source);
         void Show();
     }
 }

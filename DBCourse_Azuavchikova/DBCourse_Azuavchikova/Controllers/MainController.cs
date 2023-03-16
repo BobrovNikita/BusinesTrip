@@ -37,7 +37,10 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
 
         private void LoadBusinesTrip(object? sender, EventArgs e)
         {
-            
+            IBusinesTripView view = BusinesTripView.GetInstance((MainView)_mainView);
+            IBusinesTripRepository repository = new BusinesTripRepository(new Data.BusinesTripsPayments());
+            IEmployeeRepository employeeRepository = new EmployeeRepository(new Data.BusinesTripsPayments());
+            new BusinesTripController(view, repository, employeeRepository);
         }
 
         private void LoadTravelExpenses(object? sender, EventArgs e)

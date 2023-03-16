@@ -2,15 +2,10 @@
 using DBCourse_Azuavchikova.Data;
 using DBCourse_Azuavchikova.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DBCourse_Azuavchikova.Repositories
 {
-    internal class BusinesTripRepository : BaseRepository, IBusinesTripRepository
+    public class BusinesTripRepository : BaseRepository, IBusinesTripRepository
     {
         public BusinesTripRepository(BusinesTripsPayments context) : base(context)
         {
@@ -55,9 +50,9 @@ namespace DBCourse_Azuavchikova.Repositories
 
         public BusinesTrip GetModel(Guid id)
         {
-            var employee = _db.BusinesTrips.FirstOrDefault(e => e.Id == id);
+            var businesTrip = _db.BusinesTrips.FirstOrDefault(e => e.Id == id);
 
-            return employee;
+            return businesTrip;
         }
 
         public void Update(BusinesTrip model)
