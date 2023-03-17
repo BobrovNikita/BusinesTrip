@@ -1,17 +1,18 @@
 ﻿using DBCourse_Azuavchikova.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DBCourse_Azuavchikova.MVC.Models;
 
 namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
 {
-    public interface ITypeTravelExpensesView
+    public interface ITravelExpensesView
     {
         Guid Id { get; set; }
-        string NameTTE { get; set; }
-        int Rate { get; set; }
+        BusinesTripViewModel BusinesTrip { get; set; }
+        TypesTravelExpenses TypesTravelExpenses { get; set; }
+        string PurposePayments { get; set; }
+        DateTime DatePayments { get; set; }
+        int SumPayments { get; set; }
+        string NameExpense { get; set; }
+
 
         string searchValue { get; set; }
         bool IsEdit { get; set; }
@@ -26,6 +27,8 @@ namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
 
+        void SetTravelExpensesViewBindingSource(BindingSource source);
+        void SetBusinesTripBindingSource(BindingSource source);
         void SetTypeTravelExpensesBindingSource(BindingSource source);
         void Show();
     }

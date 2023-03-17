@@ -1,6 +1,6 @@
 ﻿namespace DBCourse_Azuavchikova.MVC.Views
 {
-    partial class BusinesTripView
+    partial class TravelExpensesView
     {
         /// <summary>
         /// Required designer variable.
@@ -41,24 +41,22 @@
             this.SearchTxb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.DateEndDtp = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.DateStartDtp = new System.Windows.Forms.DateTimePicker();
+            this.DateDtp = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.BasisTxt = new System.Windows.Forms.TextBox();
-            this.EmpCmb = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.MarkTxt = new System.Windows.Forms.TextBox();
+            this.SumExpersesTxt = new System.Windows.Forms.TextBox();
+            this.BusinesTripCmb = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.GoalTxt = new System.Windows.Forms.TextBox();
+            this.NameExpersesTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
-            this.DestinationTxt = new System.Windows.Forms.TextBox();
+            this.PurposePaymentTxt = new System.Windows.Forms.TextBox();
+            this.TypeTravelExpensesCmb = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -75,7 +73,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 73);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 6;
             // 
             // CloseBtn
             // 
@@ -95,9 +93,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(446, 45);
+            this.label1.Size = new System.Drawing.Size(469, 45);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Служебные командировки";
+            this.label1.Text = "Командировочные расходы";
             // 
             // tabControl1
             // 
@@ -108,7 +106,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 377);
-            this.tabControl1.TabIndex = 6;
+            this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
@@ -132,7 +130,7 @@
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DeleteBtn.Location = new System.Drawing.Point(639, 170);
+            this.DeleteBtn.Location = new System.Drawing.Point(637, 173);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(147, 32);
             this.DeleteBtn.TabIndex = 6;
@@ -144,7 +142,7 @@
             this.EditBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.EditBtn.Location = new System.Drawing.Point(639, 132);
+            this.EditBtn.Location = new System.Drawing.Point(637, 135);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(147, 32);
             this.EditBtn.TabIndex = 5;
@@ -156,7 +154,7 @@
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AddBtn.Location = new System.Drawing.Point(639, 94);
+            this.AddBtn.Location = new System.Drawing.Point(637, 97);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(147, 32);
             this.AddBtn.TabIndex = 4;
@@ -168,7 +166,7 @@
             this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SearchBtn.Location = new System.Drawing.Point(510, 56);
+            this.SearchBtn.Location = new System.Drawing.Point(504, 59);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
@@ -179,7 +177,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(20, 28);
+            this.label2.Location = new System.Drawing.Point(23, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 25);
             this.label2.TabIndex = 2;
@@ -190,9 +188,9 @@
             this.SearchTxb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchTxb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchTxb.Location = new System.Drawing.Point(20, 56);
+            this.SearchTxb.Location = new System.Drawing.Point(23, 59);
             this.SearchTxb.Name = "SearchTxb";
-            this.SearchTxb.Size = new System.Drawing.Size(482, 32);
+            this.SearchTxb.Size = new System.Drawing.Size(475, 32);
             this.SearchTxb.TabIndex = 1;
             // 
             // dataGridView1
@@ -205,36 +203,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 94);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 97);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(611, 238);
+            this.dataGridView1.Size = new System.Drawing.Size(602, 244);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.DateEndDtp);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.DateStartDtp);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.BasisTxt);
-            this.tabPage2.Controls.Add(this.EmpCmb);
+            this.tabPage2.Controls.Add(this.TypeTravelExpensesCmb);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.MarkTxt);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.DateDtp);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.SumExpersesTxt);
+            this.tabPage2.Controls.Add(this.BusinesTripCmb);
             this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.GoalTxt);
+            this.tabPage2.Controls.Add(this.NameExpersesTxt);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.CancelBtn);
             this.tabPage2.Controls.Add(this.SaveBtn);
             this.tabPage2.Controls.Add(this.IdTxt);
-            this.tabPage2.Controls.Add(this.DestinationTxt);
+            this.tabPage2.Controls.Add(this.PurposePaymentTxt);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -243,133 +239,96 @@
             this.tabPage2.Text = "Детали";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(326, 134);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 25);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Дата конца";
-            // 
-            // DateEndDtp
-            // 
-            this.DateEndDtp.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DateEndDtp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DateEndDtp.Location = new System.Drawing.Point(326, 162);
-            this.DateEndDtp.Name = "DateEndDtp";
-            this.DateEndDtp.Size = new System.Drawing.Size(226, 29);
-            this.DateEndDtp.TabIndex = 22;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(326, 71);
+            this.label9.Location = new System.Drawing.Point(329, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 25);
+            this.label9.Size = new System.Drawing.Size(56, 25);
             this.label9.TabIndex = 21;
-            this.label9.Text = "Дата начала";
+            this.label9.Text = "Дата";
             // 
-            // DateStartDtp
+            // DateDtp
             // 
-            this.DateStartDtp.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DateStartDtp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DateStartDtp.Location = new System.Drawing.Point(326, 99);
-            this.DateStartDtp.Name = "DateStartDtp";
-            this.DateStartDtp.Size = new System.Drawing.Size(226, 29);
-            this.DateStartDtp.TabIndex = 20;
+            this.DateDtp.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DateDtp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DateDtp.Location = new System.Drawing.Point(326, 99);
+            this.DateDtp.Name = "DateDtp";
+            this.DateDtp.Size = new System.Drawing.Size(226, 29);
+            this.DateDtp.TabIndex = 20;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(14, 206);
+            this.label8.Location = new System.Drawing.Point(17, 209);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(261, 25);
+            this.label8.Size = new System.Drawing.Size(74, 25);
             this.label8.TabIndex = 19;
-            this.label8.Text = "Основание командировки";
+            this.label8.Text = "Сумма";
             // 
-            // BasisTxt
+            // SumExpersesTxt
             // 
-            this.BasisTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BasisTxt.Location = new System.Drawing.Point(14, 234);
-            this.BasisTxt.Name = "BasisTxt";
-            this.BasisTxt.Size = new System.Drawing.Size(213, 25);
-            this.BasisTxt.TabIndex = 18;
+            this.SumExpersesTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SumExpersesTxt.Location = new System.Drawing.Point(14, 234);
+            this.SumExpersesTxt.Name = "SumExpersesTxt";
+            this.SumExpersesTxt.Size = new System.Drawing.Size(213, 25);
+            this.SumExpersesTxt.TabIndex = 18;
             // 
-            // EmpCmb
+            // BusinesTripCmb
             // 
-            this.EmpCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.EmpCmb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmpCmb.FormattingEnabled = true;
-            this.EmpCmb.Location = new System.Drawing.Point(326, 33);
-            this.EmpCmb.Name = "EmpCmb";
-            this.EmpCmb.Size = new System.Drawing.Size(213, 33);
-            this.EmpCmb.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(14, 269);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 25);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Отметка";
-            // 
-            // MarkTxt
-            // 
-            this.MarkTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MarkTxt.Location = new System.Drawing.Point(14, 297);
-            this.MarkTxt.Name = "MarkTxt";
-            this.MarkTxt.Size = new System.Drawing.Size(213, 25);
-            this.MarkTxt.TabIndex = 15;
+            this.BusinesTripCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BusinesTripCmb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BusinesTripCmb.FormattingEnabled = true;
+            this.BusinesTripCmb.Location = new System.Drawing.Point(326, 33);
+            this.BusinesTripCmb.Name = "BusinesTripCmb";
+            this.BusinesTripCmb.Size = new System.Drawing.Size(213, 33);
+            this.BusinesTripCmb.TabIndex = 17;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(14, 138);
+            this.label5.Location = new System.Drawing.Point(17, 141);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(207, 25);
+            this.label5.Size = new System.Drawing.Size(234, 25);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Цель командировки";
+            this.label5.Text = "Наименование расхода";
             // 
-            // GoalTxt
+            // NameExpersesTxt
             // 
-            this.GoalTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GoalTxt.Location = new System.Drawing.Point(14, 166);
-            this.GoalTxt.Name = "GoalTxt";
-            this.GoalTxt.Size = new System.Drawing.Size(213, 25);
-            this.GoalTxt.TabIndex = 13;
+            this.NameExpersesTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NameExpersesTxt.Location = new System.Drawing.Point(14, 166);
+            this.NameExpersesTxt.Name = "NameExpersesTxt";
+            this.NameExpersesTxt.Size = new System.Drawing.Size(213, 25);
+            this.NameExpersesTxt.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(326, 5);
+            this.label6.Location = new System.Drawing.Point(329, 8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 25);
+            this.label6.Size = new System.Drawing.Size(153, 25);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Сотрудник";
+            this.label6.Text = "Командировка";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(14, 77);
+            this.label4.Location = new System.Drawing.Point(17, 80);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 25);
+            this.label4.Size = new System.Drawing.Size(206, 25);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Место назначения";
+            this.label4.Text = "Назначение платежа";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(20, 15);
+            this.label3.Location = new System.Drawing.Point(17, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 25);
             this.label3.TabIndex = 2;
@@ -380,7 +339,7 @@
             this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CancelBtn.Location = new System.Drawing.Point(478, 304);
+            this.CancelBtn.Location = new System.Drawing.Point(478, 307);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(151, 39);
             this.CancelBtn.TabIndex = 4;
@@ -392,7 +351,7 @@
             this.SaveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SaveBtn.Location = new System.Drawing.Point(635, 304);
+            this.SaveBtn.Location = new System.Drawing.Point(635, 307);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(151, 39);
             this.SaveBtn.TabIndex = 3;
@@ -408,23 +367,43 @@
             this.IdTxt.Size = new System.Drawing.Size(257, 29);
             this.IdTxt.TabIndex = 2;
             // 
-            // DestinationTxt
+            // PurposePaymentTxt
             // 
-            this.DestinationTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DestinationTxt.Location = new System.Drawing.Point(14, 105);
-            this.DestinationTxt.Name = "DestinationTxt";
-            this.DestinationTxt.Size = new System.Drawing.Size(213, 25);
-            this.DestinationTxt.TabIndex = 0;
+            this.PurposePaymentTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PurposePaymentTxt.Location = new System.Drawing.Point(14, 105);
+            this.PurposePaymentTxt.Name = "PurposePaymentTxt";
+            this.PurposePaymentTxt.Size = new System.Drawing.Size(213, 25);
+            this.PurposePaymentTxt.TabIndex = 0;
             // 
-            // BusinesTripView
+            // TypeTravelExpensesCmb
+            // 
+            this.TypeTravelExpensesCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TypeTravelExpensesCmb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TypeTravelExpensesCmb.FormattingEnabled = true;
+            this.TypeTravelExpensesCmb.Location = new System.Drawing.Point(571, 33);
+            this.TypeTravelExpensesCmb.Name = "TypeTravelExpensesCmb";
+            this.TypeTravelExpensesCmb.Size = new System.Drawing.Size(213, 33);
+            this.TypeTravelExpensesCmb.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(574, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(140, 25);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Тип расходов";
+            // 
+            // TravelExpensesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
-            this.Name = "BusinesTripView";
-            this.Text = "BusinesTripView";
+            this.Name = "TravelExpensesView";
+            this.Text = "TravelExpensesView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -452,23 +431,21 @@
         private TextBox SearchTxb;
         private DataGridView dataGridView1;
         private TabPage tabPage2;
-        private ComboBox EmpCmb;
-        private Label label7;
-        private TextBox MarkTxt;
+        private Label label9;
+        private DateTimePicker DateDtp;
+        private Label label8;
+        private TextBox SumExpersesTxt;
+        private ComboBox BusinesTripCmb;
         private Label label5;
-        private TextBox GoalTxt;
+        private TextBox NameExpersesTxt;
         private Label label6;
         private Label label4;
         private Label label3;
         private Button CancelBtn;
         private Button SaveBtn;
         private TextBox IdTxt;
-        private TextBox DestinationTxt;
-        private Label label10;
-        private DateTimePicker DateEndDtp;
-        private Label label9;
-        private DateTimePicker DateStartDtp;
-        private Label label8;
-        private TextBox BasisTxt;
+        private TextBox PurposePaymentTxt;
+        private ComboBox TypeTravelExpensesCmb;
+        private Label label7;
     }
 }
