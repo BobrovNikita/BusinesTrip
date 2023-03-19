@@ -1,4 +1,5 @@
-﻿using DBCourse_Azuavchikova.Abstactions.Repositories;
+﻿using Azure.Core;
+using DBCourse_Azuavchikova.Abstactions.Repositories;
 using DBCourse_Azuavchikova.Data.Entities;
 using DBCourse_Azuavchikova.MVC.Models;
 using DBCourse_Azuavchikova.MVC.Views.Abstractions;
@@ -37,6 +38,7 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             view.DeleteEvent += DeleteSelected;
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
+            view.FilterEvent += Filtration;
 
             LoadBTList();
             LoadCombobox();
@@ -233,6 +235,24 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
                     TypeExpense = e.TypesTravelExpenses.Name,
                     Destination = e.BusinesTrip.Destination,
                 }).ToList();
+
+            travelExpensesBindingSource.DataSource = _travelExpenses;
+        }
+
+        private void Filtration(object? sender, EventArgs e)
+        {
+            _travelExpenses = _repository.GetAllBetweenDate(_view.DateFirst, _view.DateSecond).Select(e => new TravelExpensesViewModel
+            {
+                Id = e.Id,
+                BusinesTripId = e.BusinesTripId,
+                TypesTravelExpensesId = e.TypesTravelExpensesId,
+                DatePayments = e.DatePayments,
+                NameExpense = e.NameExpense,
+                PurposePayments = e.PurposePayments,
+                SumPayments = e.SumPayments,
+                TypeExpense = e.TypesTravelExpenses.Name,
+                Destination = e.BusinesTrip.Destination,
+            }).ToList(); ;
 
             travelExpensesBindingSource.DataSource = _travelExpenses;
         }

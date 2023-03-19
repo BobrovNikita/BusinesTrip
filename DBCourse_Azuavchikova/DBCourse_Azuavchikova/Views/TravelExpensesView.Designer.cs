@@ -33,6 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.FilterBtn = new System.Windows.Forms.Button();
+            this.DateSecond = new System.Windows.Forms.DateTimePicker();
+            this.DateFirst = new System.Windows.Forms.DateTimePicker();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -41,6 +44,8 @@
             this.SearchTxb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TypeTravelExpensesCmb = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.DateDtp = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,8 +60,6 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.PurposePaymentTxt = new System.Windows.Forms.TextBox();
-            this.TypeTravelExpensesCmb = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -110,6 +113,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.FilterBtn);
+            this.tabPage1.Controls.Add(this.DateSecond);
+            this.tabPage1.Controls.Add(this.DateFirst);
             this.tabPage1.Controls.Add(this.DeleteBtn);
             this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
@@ -124,6 +130,34 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // FilterBtn
+            // 
+            this.FilterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilterBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FilterBtn.Location = new System.Drawing.Point(637, 309);
+            this.FilterBtn.Name = "FilterBtn";
+            this.FilterBtn.Size = new System.Drawing.Size(147, 32);
+            this.FilterBtn.TabIndex = 9;
+            this.FilterBtn.Text = "Фильровать";
+            this.FilterBtn.UseVisualStyleBackColor = true;
+            // 
+            // DateSecond
+            // 
+            this.DateSecond.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DateSecond.Location = new System.Drawing.Point(637, 260);
+            this.DateSecond.Name = "DateSecond";
+            this.DateSecond.Size = new System.Drawing.Size(147, 29);
+            this.DateSecond.TabIndex = 8;
+            // 
+            // DateFirst
+            // 
+            this.DateFirst.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DateFirst.Location = new System.Drawing.Point(637, 222);
+            this.DateFirst.Name = "DateFirst";
+            this.DateFirst.Size = new System.Drawing.Size(147, 29);
+            this.DateFirst.TabIndex = 7;
             // 
             // DeleteBtn
             // 
@@ -238,6 +272,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Детали";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // TypeTravelExpensesCmb
+            // 
+            this.TypeTravelExpensesCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TypeTravelExpensesCmb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TypeTravelExpensesCmb.FormattingEnabled = true;
+            this.TypeTravelExpensesCmb.Location = new System.Drawing.Point(571, 33);
+            this.TypeTravelExpensesCmb.Name = "TypeTravelExpensesCmb";
+            this.TypeTravelExpensesCmb.Size = new System.Drawing.Size(213, 33);
+            this.TypeTravelExpensesCmb.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(574, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(140, 25);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Тип расходов";
             // 
             // label9
             // 
@@ -375,26 +429,6 @@
             this.PurposePaymentTxt.Size = new System.Drawing.Size(213, 25);
             this.PurposePaymentTxt.TabIndex = 0;
             // 
-            // TypeTravelExpensesCmb
-            // 
-            this.TypeTravelExpensesCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TypeTravelExpensesCmb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TypeTravelExpensesCmb.FormattingEnabled = true;
-            this.TypeTravelExpensesCmb.Location = new System.Drawing.Point(571, 33);
-            this.TypeTravelExpensesCmb.Name = "TypeTravelExpensesCmb";
-            this.TypeTravelExpensesCmb.Size = new System.Drawing.Size(213, 33);
-            this.TypeTravelExpensesCmb.TabIndex = 23;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(574, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 25);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Тип расходов";
-            // 
             // TravelExpensesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -447,5 +481,8 @@
         private TextBox PurposePaymentTxt;
         private ComboBox TypeTravelExpensesCmb;
         private Label label7;
+        private Button FilterBtn;
+        private DateTimePicker DateSecond;
+        private DateTimePicker DateFirst;
     }
 }

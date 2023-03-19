@@ -37,6 +37,14 @@ namespace DBCourse_Azuavchikova.Repositories
                 return context.TravelExpenses.Include(p => p.BusinesTrip).Include(t => t.TypesTravelExpenses).ToList();
         }
 
+        public IEnumerable<TravelExpenses> GetAllBetweenDate(DateTime startDate, DateTime endDate)
+        {
+            using (var context = new BusinesTripsPayments())
+                return context.TravelExpenses.Include(p => p.BusinesTrip).Include(t => t.TypesTravelExpenses).Where(e =>
+                                                                e.DatePayments >= startDate && e.DatePayments <= endDate
+                                                                ).ToList();
+        }
+
         public IEnumerable<TravelExpenses> GetAllByValue(string value)
         {
             using (var context = new BusinesTripsPayments())

@@ -6,6 +6,8 @@ namespace DBCourse_Azuavchikova.Abstactions.Repositories
     {
         IEnumerable<TravelExpenses> GetAll();
         IEnumerable<TravelExpenses> GetAllByValue(string value);
+        IEnumerable<TravelExpenses> GetAllBetweenDate(DateTime startDate, DateTime endDate);
+
         TravelExpenses GetModel(Guid id);
         void Add(TravelExpenses model);
         void Update(TravelExpenses model);

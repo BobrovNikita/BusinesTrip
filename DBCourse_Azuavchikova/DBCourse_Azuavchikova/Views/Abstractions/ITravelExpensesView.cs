@@ -19,6 +19,9 @@ namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
         bool IsSuccessful { get; set; }
         string Message { get; set; }
 
+        DateTime DateFirst { get; set; }
+        DateTime DateSecond { get; set; }
+
         //Events
         event EventHandler SearchEvent;
         event EventHandler AddNewEvent;
@@ -26,6 +29,7 @@ namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
+        event EventHandler FilterEvent;
 
         void SetTravelExpensesViewBindingSource(BindingSource source);
         void SetBusinesTripBindingSource(BindingSource source);

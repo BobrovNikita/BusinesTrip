@@ -34,6 +34,7 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
             view.CerteficatePrintEvent += CertificatePrint;
+            view.OrderPrintEvent += OrderPrint;
 
             LoadBTList();
             LoadCombobox();
@@ -43,12 +44,41 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
 
             _view.Show();
         }
-
         private void ReplaceWordStub(string stubToReplace, string text, Word.Document wordDocumet)
         {
             var range = wordDocumet.Content;
             range.Find.ClearFormatting();
             range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
+        }
+
+        private void OrderPrint(object? sender, EventArgs e)
+        {
+            var viewModel = (BusinesTripViewModel)buninesTripBindingSource.Current;
+
+            var model = new BusinesTrip();
+            model.Id = viewModel.Id;
+            model.Employee = _employeeRepository.GetModel(viewModel.EmployeeId);
+            model.Destination = viewModel.Destination;
+            model.DateStart = viewModel.DateStart;
+            model.DateEnd = viewModel.DateEnd;
+            model.Basis = viewModel.Basis;
+            model.Goal = viewModel.Goal;
+            model.Mark = viewModel.Mark;
+            string postName = _employeeRepository.GetModel(viewModel.EmployeeId).Position.Name;
+
+            Word.Application wApp = new Word.Application();
+            wApp.Visible = true;
+            object missing = Type.Missing;
+            object falseValue = false;
+            Word.Document wordDocument = wApp.Documents.Open(Path.Combine(System.Windows.Forms.Application.StartupPath, Directory.GetCurrentDirectory() + "\\Приказ.docx"));
+            ReplaceWordStub("{Surname}", model.Employee.Surname, wordDocument);
+            ReplaceWordStub("{Name}", model.Employee.Name, wordDocument);
+            ReplaceWordStub("{LastName}", model.Employee.LastName, wordDocument);
+            ReplaceWordStub("{PostName}", postName, wordDocument);
+            ReplaceWordStub("{DateStart}", model.DateStart.ToShortTimeString(), wordDocument);
+            ReplaceWordStub("{DateEnd}", model.DateEnd.ToShortTimeString(), wordDocument);
+            ReplaceWordStub("{Destinition}", model.Destination, wordDocument);
+            ReplaceWordStub("{Goal}", model.Goal, wordDocument);
         }
 
         private void CertificatePrint(object? sender, EventArgs e)

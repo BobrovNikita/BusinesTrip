@@ -50,7 +50,7 @@ namespace DBCourse_Azuavchikova.Repositories
 
         public Employee GetModel(Guid id)
         {
-            var employee = _db.Employees.FirstOrDefault(e => e.Id == id);
+            var employee = _db.Employees.Include(p => p.Position).FirstOrDefault(e => e.Id == id);
 
             return employee;
         }

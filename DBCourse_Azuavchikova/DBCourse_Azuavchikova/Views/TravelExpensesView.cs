@@ -84,6 +84,16 @@ namespace DBCourse_Azuavchikova.MVC.Views
             get => _message;
             set => _message = value;
         }
+        DateTime ITravelExpensesView.DateFirst
+        {
+            get => DateFirst.Value;
+            set => DateFirst.Value = value;
+        }
+        DateTime ITravelExpensesView.DateSecond
+        {
+            get => DateSecond.Value;
+            set => DateSecond.Value = value;
+        }
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -91,6 +101,7 @@ namespace DBCourse_Azuavchikova.MVC.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler FilterEvent;
 
         public TravelExpensesView()
         {
@@ -171,6 +182,8 @@ namespace DBCourse_Azuavchikova.MVC.Views
                 tabControl1.TabPages.Add(tabPage1);
                 tabControl1.TabPages.Remove(tabPage2);
             };
+
+            FilterBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
         }
 
         public void SetBusinesTripBindingSource(BindingSource source)
