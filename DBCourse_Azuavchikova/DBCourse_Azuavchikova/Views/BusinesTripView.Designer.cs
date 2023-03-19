@@ -59,6 +59,8 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.DestinationTxt = new System.Windows.Forms.TextBox();
+            this.CertificateBtn = new System.Windows.Forms.Button();
+            this.OrderBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,6 +114,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.OrderBtn);
+            this.tabPage1.Controls.Add(this.CertificateBtn);
             this.tabPage1.Controls.Add(this.DeleteBtn);
             this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
@@ -416,6 +420,30 @@
             this.DestinationTxt.Size = new System.Drawing.Size(213, 25);
             this.DestinationTxt.TabIndex = 0;
             // 
+            // CertificateBtn
+            // 
+            this.CertificateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CertificateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CertificateBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CertificateBtn.Location = new System.Drawing.Point(637, 208);
+            this.CertificateBtn.Name = "CertificateBtn";
+            this.CertificateBtn.Size = new System.Drawing.Size(147, 32);
+            this.CertificateBtn.TabIndex = 7;
+            this.CertificateBtn.Text = "Удостоверение";
+            this.CertificateBtn.UseVisualStyleBackColor = true;
+            // 
+            // OrderBtn
+            // 
+            this.OrderBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderBtn.Location = new System.Drawing.Point(637, 246);
+            this.OrderBtn.Name = "OrderBtn";
+            this.OrderBtn.Size = new System.Drawing.Size(147, 32);
+            this.OrderBtn.TabIndex = 8;
+            this.OrderBtn.Text = "Приказ";
+            this.OrderBtn.UseVisualStyleBackColor = true;
+            // 
             // BusinesTripView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -470,5 +498,7 @@
         private DateTimePicker DateStartDtp;
         private Label label8;
         private TextBox BasisTxt;
+        private Button OrderBtn;
+        private Button CertificateBtn;
     }
 }

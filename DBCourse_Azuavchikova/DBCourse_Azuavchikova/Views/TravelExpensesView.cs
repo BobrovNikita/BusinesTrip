@@ -176,7 +176,7 @@ namespace DBCourse_Azuavchikova.MVC.Views
         public void SetBusinesTripBindingSource(BindingSource source)
         {
             BusinesTripCmb.DataSource = source;
-            BusinesTripCmb.DisplayMember = "Destenation";
+            BusinesTripCmb.DisplayMember = "Destination";
             BusinesTripCmb.ValueMember = "Id";
         }
 
@@ -185,6 +185,7 @@ namespace DBCourse_Azuavchikova.MVC.Views
             dataGridView1.DataSource = source;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
         }
 
         public void SetTypeTravelExpensesBindingSource(BindingSource source)

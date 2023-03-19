@@ -95,6 +95,8 @@ namespace DBCourse_Azuavchikova.MVC.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler OrderPrintEvent;
+        public event EventHandler CerteficatePrintEvent;
 
         public BusinesTripView()
         {
@@ -174,6 +176,16 @@ namespace DBCourse_Azuavchikova.MVC.Views
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Add(tabPage1);
                 tabControl1.TabPages.Remove(tabPage2);
+            };
+
+            OrderBtn.Click += delegate
+            {
+                OrderPrintEvent?.Invoke(this, EventArgs.Empty);
+            };
+
+            CertificateBtn.Click += delegate
+            {
+                CerteficatePrintEvent?.Invoke(this, EventArgs.Empty);
             };
         }
 

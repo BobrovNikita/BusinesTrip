@@ -2,11 +2,7 @@
 using DBCourse_Azuavchikova.Data.Entities;
 using DBCourse_Azuavchikova.MVC.Models;
 using DBCourse_Azuavchikova.MVC.Views.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace DBCourse_Azuavchikova.MVC.Controllers
 {
@@ -37,6 +33,7 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             view.DeleteEvent += DeleteSelected;
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
+            view.CerteficatePrintEvent += CertificatePrint;
 
             LoadBTList();
             LoadCombobox();
@@ -45,6 +42,38 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             view.SetEmployeeBindingSource(employeeBindingSource);
 
             _view.Show();
+        }
+
+        private void ReplaceWordStub(string stubToReplace, string text, Word.Document wordDocumet)
+        {
+            var range = wordDocumet.Content;
+            range.Find.ClearFormatting();
+            range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
+        }
+
+        private void CertificatePrint(object? sender, EventArgs e)
+        {
+            var viewModel = (BusinesTripViewModel)buninesTripBindingSource.Current;
+
+            var model = new BusinesTrip();
+            model.Id = viewModel.Id;
+            model.Employee = _employeeRepository.GetModel(viewModel.EmployeeId);
+            model.Destination = viewModel.Destination;
+            model.DateStart = viewModel.DateStart;
+            model.DateEnd = viewModel.DateEnd;
+            model.Basis = viewModel.Basis;
+            model.Goal = viewModel.Goal;
+            model.Mark = viewModel.Mark;
+
+            Word.Application wApp = new Word.Application();
+            wApp.Visible = true;
+            object missing = Type.Missing;
+            object falseValue = false;
+            Word.Document wordDocument = wApp.Documents.Open(Path.Combine(System.Windows.Forms.Application.StartupPath, Directory.GetCurrentDirectory() + "\\Командировочное удостоверение.docx"));
+            ReplaceWordStub("{Surname}", model.Employee.Surname, wordDocument);
+            ReplaceWordStub("{Name}", model.Employee.Name, wordDocument);
+            ReplaceWordStub("{LastName}", model.Employee.LastName, wordDocument);
+            ReplaceWordStub("{Goal}", model.Goal, wordDocument);
         }
 
         private void LoadBTList()

@@ -32,6 +32,8 @@ namespace DBCourse_Azuavchikova.MVC.Views.Abstractions
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
+        event EventHandler OrderPrintEvent;
+        event EventHandler CerteficatePrintEvent;
 
         void SetEmployeeBindingSource(BindingSource source);
         void SetBusinesTripBindingSource(BindingSource source);

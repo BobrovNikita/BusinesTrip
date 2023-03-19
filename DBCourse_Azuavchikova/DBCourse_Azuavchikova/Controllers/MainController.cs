@@ -45,7 +45,11 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
 
         private void LoadTravelExpenses(object? sender, EventArgs e)
         {
-            
+            ITravelExpensesView view = TravelExpensesView.GetInstance((MainView)_mainView);
+            ITravelExpensesRepository repository = new TravelExpensesRepository(new Data.BusinesTripsPayments());
+            IBusinesTripRepository businesTripRepository = new BusinesTripRepository(new Data.BusinesTripsPayments());
+            ITypesTravelExpensesRepository typeTravelRepository = new TypeTravelExpensesRepository(new Data.BusinesTripsPayments());
+            new TravelExpensesController(view, repository, businesTripRepository, typeTravelRepository);
         }
 
         private void LoadTypesTravelExpenses(object? sender, EventArgs e)

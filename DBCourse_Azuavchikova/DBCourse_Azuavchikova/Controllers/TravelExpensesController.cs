@@ -41,7 +41,7 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             LoadBTList();
             LoadCombobox();
 
-            view.SetBusinesTripBindingSource(travelExpensesBindingSource);
+            view.SetTravelExpensesViewBindingSource(travelExpensesBindingSource);
             view.SetBusinesTripBindingSource(businesTripBindingSource);
             view.SetTypeTravelExpensesBindingSource(typeTravelBindindSource);
 
@@ -63,6 +63,7 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
                 Destination = e.BusinesTrip.Destination,
 
             }).ToList();
+
             travelExpensesBindingSource.DataSource = _travelExpenses;
         }
 
@@ -73,6 +74,12 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
                 Id = e.Id,
                 Destination= e.Destination
             });
+
+            if (_businesTrips.ToList().Count > 0)
+            {
+                typeTravelBindindSource.DataSource = _typeTravelExpenses;
+            }
+
             businesTripBindingSource.DataSource = _businesTrips;
 
             _typeTravelExpenses = _typeTravelEexpensesRepository.GetAll().Select(e => new TypesTravelExpenses
@@ -80,18 +87,23 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
                 Id = e.Id,
                 Name = e.Name,
             });
-            typeTravelBindindSource.DataSource = _typeTravelExpenses;
+
+            if (_typeTravelExpenses.ToList().Count > 0)
+            {
+                typeTravelBindindSource.DataSource = _typeTravelExpenses;
+            }
         }
 
         private void CleanViewFields()
         {
             _view.Id = Guid.Empty;
-            _view.Destination = string.Empty;
-            _view.Goal = string.Empty;
-            _view.Basis = string.Empty;
-            _view.DateStart = DateTime.Now;
-            _view.DateEnd = DateTime.Now;
-            _view.Mark = -1;
+            _view.BusinesTrip = new BusinesTripViewModel();
+            _view.TypesTravelExpenses = new TypesTravelExpenses();
+            _view.PurposePayments = string.Empty;
+            _view.DatePayments = DateTime.Now;
+            _view.SumPayments = -1;
+            _view.NameExpense = string.Empty;
+
         }
 
         private void CancelAction(object? sender, EventArgs e)
@@ -101,34 +113,34 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
 
         private void Save(object? sender, EventArgs e)
         {
-            if (_view.Employee == null)
+            if (_view.BusinesTrip == null || _view.TypesTravelExpenses == null)
             {
                 CleanViewFields();
                 _view.Message = "Значения в комбобоксе нет";
                 return;
             }
 
-            var model = new BusinesTrip();
+            var model = new TravelExpenses();
             model.Id = _view.Id;
-            model.EmployeeId = _view.Employee.Id;
-            model.Destination = _view.Destination;
-            model.Goal = _view.Goal;
-            model.Basis = _view.Basis;
-            model.DateStart = _view.DateStart;
-            model.DateEnd = _view.DateEnd;
-            model.Mark = _view.Mark;
+            model.BusinesTripId = _view.BusinesTrip.Id;
+            model.TypesTravelExpensesId = _view.TypesTravelExpenses.Id;
+            model.PurposePayments = _view.PurposePayments;
+            model.DatePayments = _view.DatePayments;
+            model.NameExpense = _view.NameExpense;
+            model.SumPayments = _view.SumPayments;
+
 
             try
             {
                 if (_view.IsEdit)
                 {
                     _repository.Update(model);
-                    _view.Message = "Служебная командировка была изменена";
+                    _view.Message = "Командировоные расходы были изменене";
                 }
                 else
                 {
                     _repository.Add(model);
-                    _view.Message = "Служебная командировка была добавлена";
+                    _view.Message = "Командировоные расходы были добавлены";
                 }
                 _view.IsSuccessful = true;
                 LoadBTList();
@@ -145,21 +157,20 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
         {
             try
             {
-                var model = (BusinesTripViewModel)travelExpensesBindingSource.Current;
+                var model = (TravelExpensesViewModel)travelExpensesBindingSource.Current;
                 if (model == null)
                 {
                     throw new Exception();
                 }
 
-                var entity = new BusinesTrip();
+                var entity = new TravelExpenses();
                 entity.Id = model.Id;
-                entity.EmployeeId = model.EmployeeId;
-                entity.Destination = model.Destination;
-                entity.Goal = model.Goal;
-                entity.Basis = model.Basis;
-                entity.DateStart = model.DateStart;
-                entity.DateEnd = model.DateEnd;
-                entity.Mark = model.Mark;
+                entity.BusinesTripId = model.BusinesTripId;
+                entity.TypesTravelExpensesId = model.TypesTravelExpensesId;
+                entity.PurposePayments = _view.PurposePayments;
+                entity.DatePayments = _view.DatePayments;
+                entity.SumPayments = _view.SumPayments;
+                entity.NameExpense = _view.NameExpense;
 
                 _repository.Delete(entity);
                 _view.IsSuccessful = true;
@@ -169,21 +180,20 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             catch (Exception)
             {
                 _view.IsSuccessful = false;
-                _view.Message = "Невозможно удалить командировку, либо она не выбрана";
+                _view.Message = "Невозможно удалить расходы, либо они не выбраны";
             }
         }
 
         private void LoadSelectedToEdit(object? sender, EventArgs e)
         {
-            var model = (BusinesTripViewModel)travelExpensesBindingSource.Current;
+            var model = (TravelExpensesViewModel)travelExpensesBindingSource.Current;
             _view.Id = model.Id;
-            _view.Employee.Id = model.EmployeeId;
-            _view.Destination = model.Destination;
-            _view.Goal = model.Goal;
-            _view.Basis = model.Basis;
-            _view.DateStart = model.DateStart;
-            _view.DateEnd = model.DateEnd;
-            _view.Mark = model.Mark;
+            _view.BusinesTrip.Id = model.BusinesTripId;
+            _view.TypesTravelExpenses.Id = model.TypesTravelExpensesId;
+            _view.PurposePayments = model.PurposePayments;
+            _view.DatePayments = model.DatePayments;
+            _view.NameExpense = model.NameExpense;
+            _view.SumPayments = model.SumPayments;
 
             _view.IsEdit = true;
         }
@@ -198,32 +208,30 @@ namespace DBCourse_Azuavchikova.MVC.Controllers
             bool emptyValue = String.IsNullOrWhiteSpace(_view.searchValue);
 
             if (emptyValue == false)
-                _travelExpenses = _repository.GetAllByValue(_view.searchValue).Select(e => new BusinesTripViewModel
+                _travelExpenses = _repository.GetAllByValue(_view.searchValue).Select(e => new TravelExpensesViewModel
                 {
                     Id = e.Id,
-                    EmployeeId = e.EmployeeId,
-                    Destination = e.Destination,
-                    Goal = e.Goal,
-                    Mark = e.Mark,
-                    Basis = e.Basis,
-                    DateStart = e.DateStart,
-                    DateEnd = e.DateEnd,
-                    EmpSurname = e.Employee.Surname,
-                    EmpName = e.Employee.Name,
+                    BusinesTripId = e.BusinesTripId,
+                    TypesTravelExpensesId = e.TypesTravelExpensesId,
+                    DatePayments = e.DatePayments,
+                    NameExpense = e.NameExpense,
+                    PurposePayments = e.PurposePayments,
+                    SumPayments = e.SumPayments,
+                    TypeExpense = e.TypesTravelExpenses.Name,
+                    Destination = e.BusinesTrip.Destination,
                 }).ToList();
             else
-                _travelExpenses = _repository.GetAll().Select(e => new BusinesTripViewModel
+                _travelExpenses = _repository.GetAll().Select(e => new TravelExpensesViewModel
                 {
                     Id = e.Id,
-                    EmployeeId = e.EmployeeId,
-                    Destination = e.Destination,
-                    Goal = e.Goal,
-                    Mark = e.Mark,
-                    Basis = e.Basis,
-                    DateStart = e.DateStart,
-                    DateEnd = e.DateEnd,
-                    EmpSurname = e.Employee.Surname,
-                    EmpName = e.Employee.Name,
+                    BusinesTripId = e.BusinesTripId,
+                    TypesTravelExpensesId = e.TypesTravelExpensesId,
+                    DatePayments = e.DatePayments,
+                    NameExpense = e.NameExpense,
+                    PurposePayments = e.PurposePayments,
+                    SumPayments = e.SumPayments,
+                    TypeExpense = e.TypesTravelExpenses.Name,
+                    Destination = e.BusinesTrip.Destination,
                 }).ToList();
 
             travelExpensesBindingSource.DataSource = _travelExpenses;
